@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * IoT Dashboard Theme
+   * Dark theme with blue, gray, and orange highlights optimized for manufacturing IoT interface
+   */
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 213 31% 91%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* IoT Dashboard Colors */
+    --iot-blue-50: 214 100% 97%;
+    --iot-blue-100: 214 95% 93%;
+    --iot-blue-200: 213 97% 87%;
+    --iot-blue-500: 217 91% 60%;
+    --iot-blue-600: 221 83% 53%;
+    --iot-blue-700: 224 76% 48%;
+    --iot-blue-900: 224 64% 33%;
+
+    --iot-gray-50: 220 14% 96%;
+    --iot-gray-100: 220 13% 91%;
+    --iot-gray-200: 216 12% 84%;
+    --iot-gray-300: 218 11% 65%;
+    --iot-gray-400: 218 11% 65%;
+    --iot-gray-500: 220 9% 46%;
+    --iot-gray-600: 215 14% 34%;
+    --iot-gray-700: 217 19% 27%;
+    --iot-gray-800: 215 28% 17%;
+    --iot-gray-900: 222 47% 11%;
+
+    --iot-orange-50: 33 100% 96%;
+    --iot-orange-100: 34 100% 92%;
+    --iot-orange-200: 32 98% 83%;
+    --iot-orange-500: 25 95% 53%;
+    --iot-orange-600: 21 90% 48%;
+    --iot-orange-700: 17 88% 40%;
+
+    --iot-success: 142 69% 58%;
+    --iot-warning: 45 93% 58%;
+    --iot-error: 0 84% 60%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 216 34% 17%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 213 31% 91%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 216 34% 17%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  html {
+    @apply dark;
+  }
+}
+
+@layer components {
+  .status-indicator {
+    @apply w-3 h-3 rounded-full flex-shrink-0;
+  }
+
+  .status-online {
+    @apply bg-iot-success shadow-[0_0_8px_rgba(34,197,94,0.4)];
+  }
+
+  .status-offline {
+    @apply bg-iot-gray-500;
+  }
+
+  .status-warning {
+    @apply bg-iot-warning shadow-[0_0_8px_rgba(251,191,36,0.4)];
+  }
+
+  .status-error {
+    @apply bg-iot-error shadow-[0_0_8px_rgba(239,68,68,0.4)];
+  }
+
+  .metric-card {
+    @apply bg-card border border-border rounded-xl p-6 hover:bg-accent/50 transition-all duration-200;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200;
+  }
+
+  .nav-item.active {
+    @apply bg-primary text-primary-foreground;
+  }
+}
